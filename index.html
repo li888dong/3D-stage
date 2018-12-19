@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>webgl demo</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <script src="js/orienter.js"></script>
+    <script type="text/javascript" src="./js/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .bg {
+            background-image: url("img/bg00.jpeg");
+            background-size: contain;
+            opacity: .5;
+            width: 100%;
+            height: 200px;
+            position: fixed;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+<div class="bg"></div>
+<script type="text/javascript">
+
+    var speed = 11;
+    var direction = 1;
+    var currentIndex = 0;
+    var isPause = false;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100000);
+    var webGLRenderer = new THREE.WebGLRenderer({alpha: true});
+    webGLRenderer.setClearColor(0x000000, 0.5);
+    webGLRenderer.setSize(window.innerWidth, window.innerHeight);
+    webGLRenderer.shadowMapEnabled = true;
+
+
+    var imgList = [
+        './img/1.jpg',
+        './img/car.png',
+        './img/nei-2.png',
+        './img/nei-3.png',
+        './img/nei-1.png',
+    ];
+
+    var imgLists = [
+        [
+            './img/1.jpg',
+            './img/car.png',
+            './img/nei-2.png',
+            './img/nei-3.png',
+            './img/nei-1.png',
+        ],
+        [
+            './img/bg1.jpg',
+            './img/nei-1.png'
+        ],
+        [
+            './img/bg1.jpg',
+            './img/nei-2.png'
+        ],
+        [
+            './img/bg1.jpg',
+            './img/nei-3.png'
+        ]
+
+    ];
+
+
+    var data = [
+        {name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
+        {name: 'car', w: 595, h: 290, x: 0, y: 0, z: 100},
+        {name: 'peo1', w: 204 * 0.8, h: 669 * 0.8, x: -280, y: -100, z: 550},
+        {name: 'peo2', w: 217 * 0.7, h: 1002 * 0.7, x: 300, y: -180, z: 800},
+        {name: 'peo3', w: 348 * 0.6, h: 1219 * 0.6, x: -100, y: -200, z: 1300}
+    ];
+
+    var dataLists = [
+        [
+            {name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
+            {name: 'car', w: 595, h: 290, x: 0, y: 0, z: 100},
+            {name: 'peo1', w: 204 * 0.8, h: 669 * 0.8, x: -280, y: -100, z: 550},
+            {name: 'peo2', w: 217 * 0.7, h: 1002 * 0.7, x: 300, y: -180, z: 800},
+            {name: 'peo3', w: 348 * 0.6, h: 1219 * 0.6, x: -100, y: -200, z: 1300}
+        ],
+        [
+            {name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
+            {name: 'peo1', w: 348 * 0.6, h: 1219 * 0.6, x: -180, y: -200, z: 800}
+        ],
+        [
+            {name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
+            {name: 'peo2', w: 348 * 0.6, h: 1219 * 0.6, x: -180, y: -200, z: 1300}
+        ],
+        [
+            {name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
+            {name: 'peo3', w: 348 * 0.6, h: 1219 * 0.6, x: 0, y: -200, z: 1300}
+        ]
+
+    ];
+
+
+    function drawScene(img, w, h, x, y, z) {
+        var mapTexture = new THREE.TextureLoader().load(img);
+        var sceneGeometry = new THREE.PlaneGeometry(w, h);
+        var planeMaterial = new THREE.MeshBasicMaterial({
+            transparent: true,
+            map: mapTexture
+        });
+        var plane = new THREE.Mesh(sceneGeometry, planeMaterial);
+        plane.position.x = x;
+        plane.position.y = y;
+        plane.position.z = z;
+        scene.add(plane);
+    }
+
+    // for(var i = 0; i < data.length; i++) {
+    //     drawScene(imgList[i],data[i].w, data[i].h, data[i].x,data[i].y, data[i].z);
+    // }
+    // camera.position.x = 0;
+    // camera.position.y = 0;
+    // camera.position.z = 3000;
+    // camera.lookAt(scene.position);
+
+    function reDraw(imgList, dataList) {
+        for (var i = 0; i < dataList.length; i++) {
+            drawScene(imgList[i], dataList[i].w, dataList[i].h, dataList[i].x, dataList[i].y, dataList[i].z);
+        }
+
+        camera.position.x = 0;
+        camera.position.y = 0;
+        camera.position.z = 3000;
+        camera.lookAt(scene.position);
+    }
+
+    reDraw(imgLists[currentIndex], dataLists[currentIndex]);
+
+
+    function animate() {
+        requestAnimationFrame(animate);
+        render();
+    }
+
+    function render() {
+
+
+        if (isPause) {
+            scene.children.length = 0;
+            if (currentIndex === 4) {
+                currentIndex = 1
+            }
+            reDraw(imgLists[currentIndex], dataLists[currentIndex]);
+            webGLRenderer.clear();
+            webGLRenderer.render(scene, camera);
+            isPause = false;
+            return;
+        }
+
+        camera.position.z -= speed * direction;
+        if (camera.position.z > 3000) {
+            camera.position.z = 3000;
+            isPause = true;
+        }
+
+        if (camera.position.z < 499) {
+            camera.position.z = 500;
+            isPause = true;
+            currentIndex++;
+        }
+        webGLRenderer.clear();
+        webGLRenderer.render(scene, camera);
+    }
+
+    document.body.appendChild(webGLRenderer.domElement);
+    animate();
+
+
+</script>
+</body>
+</html>
