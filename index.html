@@ -18,22 +18,29 @@
             overflow: hidden;
         }
 
-        .bg {
-            background-image: url("img/bg00.jpeg");
+        .people {
             background-size: contain;
-            opacity: .5;
-            width: 100%;
-            height: 200px;
+            background-repeat: no-repeat;
+            opacity: 1;
+            width: 200px;
+            height: 300px;
             position: fixed;
+            bottom: 20px;
+            transform: translate(-50%);
             z-index: 999;
         }
+        .p1{
+            background-image: url("img/girl.gif");
+            left: 50%;
+        }
+
     </style>
 </head>
 <body>
-<div class="bg"></div>
+<div class="people p1"></div>
 <script type="text/javascript">
 
-    var speed = 11;
+    var speed = 7;
     var direction = 1;
     var currentIndex = 0;
     var isPause = false;
@@ -63,11 +70,17 @@
         ],
         [
             './img/bg1.jpg',
-            './img/nei-1.png'
+            './img/27T.png',
+            './img/shizu.png',
+            './img/futa.png',
+            './img/dayumi.png'
         ],
         [
             './img/bg1.jpg',
-            './img/nei-2.png'
+            './img/27T.png',
+            './img/shizu.png',
+            './img/futa.png',
+            './img/dayumi.png'
         ],
         [
             './img/bg1.jpg',
@@ -95,15 +108,19 @@
         ],
         [
             {name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
-            {name: 'peo1', w: 348 * 0.6, h: 1219 * 0.6, x: -180, y: -200, z: 800}
+            {name: '27T', w: 100 * 0.6, h: 800 * 0.6, x: -280, y: -200, z: 200},
+            {name: 'shizu', w: 348 * 0.6, h: 619 * 0.6, x: 280, y: -200, z: 200},
+            {name: 'futa', w: 150 * 0.6, h: 800 * 0.6, x: -280, y: -200, z: 800},
+            {name: 'dayumi', w: 150 * 0.6, h: 619 * 0.6, x: 280, y: -200, z: 800}
         ],
         [
             {name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
-            {name: 'peo2', w: 348 * 0.6, h: 1219 * 0.6, x: -180, y: -200, z: 1300}
+            {name: 'peo1', w: 100 * 0.6, h: 800 * 0.6, x: -280, y: -200, z: 200},
+            {name: 'peo2', w: 348 * 0.6, h: 619 * 0.6, x: 280, y: -200, z: 400}
         ],
         [
             {name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
-            {name: 'peo3', w: 348 * 0.6, h: 1219 * 0.6, x: 0, y: -200, z: 1300}
+            {name: 'peo3', w: 348 * 0.6, h: 1219 * 0.6, x: 150, y: -200, z: 1300}
         ]
 
     ];
