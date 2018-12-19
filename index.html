@@ -4,8 +4,6 @@
     <title>webgl demo</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-    <script src="js/orienter.js"></script>
     <script type="text/javascript" src="./js/three.min.js"></script>
     <style>
         * {
@@ -50,6 +48,41 @@
     webGLRenderer.setClearColor(0x000000, 0.5);
     webGLRenderer.setSize(window.innerWidth, window.innerHeight);
     webGLRenderer.shadowMapEnabled = true;
+
+
+
+
+/*旋转的立方体*/
+    //网格面材质
+    var mats = [];
+
+    mats.push(new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('img/27T.png')}));
+    mats.push(new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('img/car.png')}));
+    mats.push(new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('img/dayumi.png')}));
+    mats.push(new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('img/futa.png')}));
+    mats.push(new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('img/sexy-girl.gif')}));
+    mats.push(new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('img/shizu.png')}));
+    mats.push(new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('img/nei-1.png')}));
+
+
+    var faceMaterial = new THREE.MeshFaceMaterial(mats);
+
+    //创建一个立方体
+    var cubeGeometry = new THREE.BoxGeometry(200,200,200);
+    //将线框（wireframe）属性设置为true，这样物体就不会被渲染为实物物体
+    // 感光材质
+    var cubeMaterial = new THREE.MeshLambertMaterial({color: 0x006644,opacity:1});
+
+    var cube = new THREE.Mesh(cubeGeometry, faceMaterial);
+
+    //设置立方体的位置
+    cube.position.x = 400;
+    cube.position.y = 200;
+    cube.position.z = 800;
+/*旋转的立方体*/
+
+
+
 
 
     var imgList = [
@@ -157,6 +190,9 @@
         camera.position.y = 0;
         camera.position.z = 3000;
         camera.lookAt(scene.position);
+
+        //将立方体添加到场景中
+        scene.add(cube);
     }
 
     reDraw(imgLists[currentIndex], dataLists[currentIndex]);
@@ -164,6 +200,12 @@
 
     function animate() {
         requestAnimationFrame(animate);
+
+        // 立方体旋转动画
+        cube.rotation.x += .01;
+        cube.rotation.y += .02;
+
+
         render();
     }
 
