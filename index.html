@@ -27,7 +27,8 @@
             transform: translate(-50%);
             z-index: 999;
         }
-        .p1{
+
+        .p1 {
             background-image: url("img/girl.gif");
             left: 50%;
         }
@@ -35,7 +36,7 @@
     </style>
 </head>
 <body>
-<div class="people p1"></div>
+<!--<div class="people p1"></div>-->
 <script type="text/javascript">
 
     var speed = 7;
@@ -50,9 +51,7 @@
     webGLRenderer.shadowMapEnabled = true;
 
 
-
-
-/*旋转的立方体*/
+   /* /!*旋转的立方体*!/
     //网格面材质
     var mats = [];
 
@@ -68,10 +67,10 @@
     var faceMaterial = new THREE.MeshFaceMaterial(mats);
 
     //创建一个立方体
-    var cubeGeometry = new THREE.BoxGeometry(200,200,200);
+    var cubeGeometry = new THREE.BoxGeometry(200, 200, 200);
     //将线框（wireframe）属性设置为true，这样物体就不会被渲染为实物物体
     // 感光材质
-    var cubeMaterial = new THREE.MeshLambertMaterial({color: 0x006644,opacity:1});
+    var cubeMaterial = new THREE.MeshLambertMaterial({color: 0x006644, opacity: 1});
 
     var cube = new THREE.Mesh(cubeGeometry, faceMaterial);
 
@@ -79,10 +78,7 @@
     cube.position.x = 400;
     cube.position.y = 200;
     cube.position.z = 800;
-/*旋转的立方体*/
-
-
-
+    /!*旋转的立方体*!/*/
 
 
     var imgList = [
@@ -170,6 +166,9 @@
         plane.position.x = x;
         plane.position.y = y;
         plane.position.z = z;
+        // // 添加雾化效果
+        // scene.fog = new THREE.Fog(0xffffff, 400, 5000);
+
         scene.add(plane);
     }
 
@@ -192,7 +191,7 @@
         camera.lookAt(scene.position);
 
         //将立方体添加到场景中
-        scene.add(cube);
+        // scene.add(cube);
     }
 
     reDraw(imgLists[currentIndex], dataLists[currentIndex]);
@@ -202,8 +201,8 @@
         requestAnimationFrame(animate);
 
         // 立方体旋转动画
-        cube.rotation.x += .01;
-        cube.rotation.y += .02;
+        // cube.rotation.x += .01;
+        // cube.rotation.y += .02;
 
 
         render();
