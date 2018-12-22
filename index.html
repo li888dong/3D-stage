@@ -14,7 +14,6 @@
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <div id="page1" class="swiper-slide">
-            <h3>首屏</h3>
             <p></p>
             <div class="arrow-down" style="display: block;"><p>上滑开始</p></div>
         </div>
@@ -27,7 +26,6 @@
             <img src="img/video.gif" alt="im">
         </div>
     </div>
-    <div class="swiper-pagination"></div>
 </div>
 <script src="js/page1.js"></script>
 <script src="js/page2.js"></script>
@@ -37,10 +35,6 @@
 
 		var swiper = new Swiper('.swiper-container', {
 			direction: 'vertical',
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true
-			},
 			on: {
 				slideChangeTransitionStart: function () {
 					cancelAnimationFrame(animateId);

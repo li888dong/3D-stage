@@ -118,7 +118,11 @@ var page2 = {
 			this.isPause = true;
 			this.currentIndex++;
 			if(this.currentIndex==4){
-				alert('下滑进入下一个')
+				var dom = document.createElement('div');
+				dom.className = 'arrow-down';
+				dom.style.display = 'block';
+				dom.innerHTML = '<p>上划切换</p>';
+				document.getElementById('page2').appendChild(dom);
 			}
 		}
 

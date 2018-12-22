@@ -30,9 +30,9 @@ html, body {
     animation: ani-arrow 1.5s infinite ease-in-out;
     margin: -14px 0 0 -48px;
     width: 96px;
-    height: 96px;
-    background: url(img/icon_arrow2.png) no-repeat center center;
-
+    height: 88px;
+    background: url(img/icon_arrow2.png) center bottom;
+    background-repeat: repeat-y;
 }
 
 @keyframes ani-arrow {
