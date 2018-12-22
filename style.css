@@ -19,6 +19,10 @@ html, body {
 
 }
 
+.swiper-slide video{
+    width: 100%;
+}
+
 .page-1{
 
 
