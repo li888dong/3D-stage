@@ -83,11 +83,15 @@ html, body {
 }
 
 .swiper-slide {
-    text-align: center;
     font-size: 18px;
     background: #fff;
     position: relative;
 
+}
+
+.swiper-slide .fengmao{
+    position: absolute;
+    opacity: 0;
 }
 
 .swiper-slide video,
@@ -96,7 +100,9 @@ html, body {
 }
 
 #page1 {
-    background-color: #f3ebde;
+    background-image: url("../img/page1.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 #page1 img{
     margin-top: 150px;
@@ -129,7 +135,8 @@ html, body {
     background-repeat: no-repeat;
 }
 #page7{
-    background-image: url("../img/page1.jpg");
+    /*background-image: url("../img/page1.jpg");*/
+    background-color: #f0e8d8;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
