@@ -93,9 +93,17 @@ html, body {
 
 #page1 {
     background: url("../img/page1.jpg");
-    background-size: contain;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+
+
+#zhengzhou{
+    background-image: url("../img/zhengzhouall.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 .zz1,
 .zz2,
 .zz3{
@@ -209,9 +217,4 @@ html, body {
 
 
 
-#zhengzhou{
-    background-image: url("../img/zhengzhouall.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
 
