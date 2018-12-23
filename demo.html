@@ -13,7 +13,8 @@
 </head>
 <body>
 <div class="loading-line">
-    <div class="line" style="width: 100%;"></div>
+    <div class="line"></div>
+    <div id="precent" style="text-align: center"></div>
 </div>
 
 <div class="swiper-container">
@@ -24,10 +25,10 @@
         </div>
         <div id="zhengzhou" class="swiper-slide">
             <div class="zz1 zz">
-                <img src="img/zhengzhou01.jpg" alt="">
+                <img src="img/zhengzhou01.png" alt="">
             </div>
             <div class="zz2 zz">
-                <img src="img/zhengzhou02.jpg" alt="">
+                <img src="img/zhengzhou02.png" alt="">
             </div>
             <div class="zz3 zz">
                 <img src="img/zhengzhou03.jpg" alt="">
@@ -47,9 +48,10 @@
 	var imgArr = [
 		'img/page1.jpg',
 		'img/bg1.jpg',
-		'img/zhengzhou01.jpg',
-		'img/zhengzhou02.jpg',
-		'img/zhengzhou03.jpg'
+		'img/zhengzhou01.png',
+		'img/zhengzhou02.png',
+		'img/zhengzhou03.jpg',
+		'img/zhengzhouall.jpg',
 	];
 	var newimages = [], loadedimages = 0;
 
@@ -59,9 +61,16 @@
 		function imageloadpost() {
 			loadedimages++;
 			if (loadedimages == arr.length) {
-				document.getElementsByClassName('swiper-container')[0].style.opacity = 1;
-				document.getElementsByClassName('loading-line')[0].style.display = 'none';
-			}
+				$('#precent').text('100%');
+				$('.line').css('width','100%');
+				setTimeout(function () {
+					document.getElementsByClassName('swiper-container')[0].style.opacity = 1;
+					document.getElementsByClassName('loading-line')[0].style.display = 'none';
+				},500);
+			}else {
+				$('#precent').text((loadedimages/arr.length).toFixed(2)*100+'%');
+				$('.line').css('width',(loadedimages/arr.length).toFixed(2)*100+'%')
+            }
 		}
 
 		for (var i = 0; i < arr.length; i++) {
