@@ -141,8 +141,116 @@ html, body {
     background-repeat: no-repeat;
 }
 #page7{
-    background-image: url("../img/page1.jpg");
     background-color: #f0e8d8;
+    position: relative;
+    text-align: center;
+}
+
+#page7 span{
+    position: absolute;
+    transition: all 1s ease;
+    opacity: 0;
+    margin-top: 100px;
+}
+#hebi{
+    color: #0000FF;
+    font-size: 55px;
+}
+#xinxiang{
+    color: #0066FF;
+    font-size: 55px;
+}
+#jiaozuo{
+    color: #660000;
+    font-size: 55px;
+    top:100px;
+    right: 0;
+}
+#puyang{
+    color: #FFFF33;
+    font-size: 55px;
+    top:100px;
+    right: 0;
+}
+#xuchang{
+    color: #FF3366;
+    font-size: 55px;
+    bottom:0;
+}
+
+#luohe{
+    color: #0000FF;
+    font-size: 55px;
+    top:0;
+    right:50%;
+}
+
+#sanmenxia{
+    color: #0066FF;
+    font-size: 55px;
+    right:50%;
+}
+
+#zhumadian{
+    color: #660000;
+    font-size: 55px;
+}
+
+#nanyang{
+    color:#FFFF33;
+    font-size: 35px;
+    left: 10%;
+    top:0;
+    max-width: 60px;
+}
+
+#xinyang{
+    color: #FF3366;
+    font-size: 35px;
+    right: 10%;
+    top:0;
+    max-width: 60px;
+
+}
+
+#jiyuan{
+    color: #660000;
+    font-size: 35px;
+    left: 50%;
+    bottom: 0;
+    max-width: 60px;
+}
+#more{
+    color:#FF3366;
+    font-size: 35px;
+    top: 200px;
+    left: 10%;
+}
+.left-small{
+    transform-origin: left bottom;
+    transform: rotate(-90deg) scale(.5);
+}
+.right-small{
+    transform-origin: right bottom;
+    transform: rotate(-90deg) scale(.5);
+}
+.top-small{
+    transform-origin: top center;
+    transform:translateY(-100%) scale(.5);
+}
+.bigger{
+    transform:scale(1.5)
+}
+.big-to-small{
+    animation: big-to-small 1s ease;
+}
+@keyframes big-to-small {
+    0%{transform:scale(.5)}
+    50%{transform:scale(1.5)}
+    100%{transform:scale(1)}
+}
+#page8{
+    background-image: url("../img/page1.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
