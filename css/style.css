@@ -108,6 +108,12 @@ html, body {
     margin-top: 150px;
 }
 
+.autotype,
+#finalText{
+    width: 60%;
+    margin:130px auto;
+    font-size:16px;
+}
 
 #zhengzhou{
     background-image: url("../img/zhengzhouall.jpg");
@@ -135,7 +141,7 @@ html, body {
     background-repeat: no-repeat;
 }
 #page7{
-    /*background-image: url("../img/page1.jpg");*/
+    background-image: url("../img/page1.jpg");
     background-color: #f0e8d8;
     background-size: 100% 100%;
     background-repeat: no-repeat;

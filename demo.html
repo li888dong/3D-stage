@@ -22,18 +22,13 @@
         <div id="page1" class="swiper-slide">
             <div class="autotype" id="autotype">
                 <p>你会陪伴一座城市多久？</p>
-                <p>5年？</p>
-                <p>10年？</p>
-                <p>20年？</p>
-                <p>30年？</p>
+                <p>5年？10年？20年？30年？</p>
                 <p>……</p>
                 <p>你匆匆而来</p>
                 <p>匆匆而过</p>
                 <p>投下路人的一瞥</p>
-                <p>“城”</p>
-                <p>一直默默承载着你</p>
-                <p>“城”</p>
-                <p>始终奋力陪你向前</p>
+                <p>“城” 一直默默承载着你</p>
+                <p>“城” 始终奋力陪你向前</p>
                 <p>此刻</p>
                 <p>请稍稍放慢脚步</p>
                 <p>站在2018回看</p>
@@ -150,7 +145,6 @@
             <div class="arrow-down" style="display: block;"><p>切换城市</p></div>
         </div>
         <div id="page7" class="swiper-slide">
-            <video id="video" src="https://www.hnsjb.cn/video/%E5%90%88%E6%88%90%201.mp4"></video>
             <div id="finalText">
                 <p>12月24日至28日</p>
                 <p>报业大厦</p>
@@ -248,6 +242,9 @@
 				$text.html(str.substring(0, index) + (index & 1 ? '_' : ''));
 				if (index >= str.length) {
 					clearInterval(timer);
+					setTimeout(function () {
+						swiper.slideNext();
+					},1500)
 				}
 			},
 			50);
@@ -332,7 +329,6 @@
 					$($('.city-map-ay')[2]).show().addClass('zz3');
 					showFengmao(this.activeIndex - 1)
 				} else if (this.activeIndex === 6) {
-                    $('#video')[0].play();
 					$("#finalText").autotype();
 				}
 			}
