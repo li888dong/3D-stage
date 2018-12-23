@@ -175,23 +175,23 @@ html, body {
 
 @keyframes img1 {
     0% {
-        transform: perspective(1500px) translate3d(0px, 300px, -1500px);
+        transform: perspective(1500px) translate3d(0px, 200px, -1500px);
         opacity: 0;
     }
     5% {
-        transform: perspective(1500px) translate3d(0px, 300px, -1500px);
+        transform: perspective(1500px) translate3d(0px, 200px, -1500px);
         opacity: 1;
     }
     33%{
-        transform: perspective(1500px) translate3d(0px, 300px, -100px);
+        transform: perspective(1500px) translate3d(0px, 200px, -100px);
         opacity: 1;
     }
     43%{
-        transform: perspective(1500px) translate3d(0px, 300px, 0px);
+        transform: perspective(1500px) translate3d(0px, 200px, 0px);
         opacity: 0;
     }
     100% {
-        transform: perspective(1500px) translate3d(0px, 300px, 0px);
+        transform: perspective(1500px) translate3d(0px, 200px, 0px);
         opacity: 0;
     }
 
@@ -200,50 +200,50 @@ html, body {
 
 @keyframes img2 {
     0% {
-        transform: perspective(1500px) translate3d(0px, 300px, -1500px);
+        transform: perspective(1500px) translate3d(0px, 200px, -1500px);
         opacity: 0;
     }
     33%{
-        transform: perspective(1500px) translate3d(0px, 300px, -1500px);
+        transform: perspective(1500px) translate3d(0px, 200px, -1500px);
         opacity: 0;
     }
     34%{
-        transform: perspective(1500px) translate3d(0px, 300px, -1500px);
+        transform: perspective(1500px) translate3d(0px, 200px, -1500px);
         opacity: 1;
     }
     66% {
-        transform: perspective(1500px) translate3d(0px, 300px, -100px);
+        transform: perspective(1500px) translate3d(0px, 200px, -100px);
         opacity: 1;
     }
     75%{
-        transform: perspective(1500px) translate3d(0px, 300px, -100px);
+        transform: perspective(1500px) translate3d(0px, 200px, -100px);
         opacity: 0;
     }
     100% {
-        transform: perspective(1500px) translate3d(0px, 300px, 0px);
+        transform: perspective(1500px) translate3d(0px, 200px, 0px);
         opacity: 0;
     }
 
 }
 @keyframes img3 {
     0% {
-        transform: perspective(1500px) translate3d(0px, 300px, -1500px);
+        transform: perspective(1500px) translate3d(0px, 200px, -1500px);
         opacity: 0;
     }
     66%{
-        transform: perspective(1500px) translate3d(0px, 300px, -1500px);
+        transform: perspective(1500px) translate3d(0px, 200px, -1500px);
         opacity: 0;
     }
     67% {
-        transform: perspective(1500px) translate3d(0px, 300px, -1500px);
+        transform: perspective(1500px) translate3d(0px, 200px, -1500px);
         opacity: 1;
     }
     95%{
-        transform: perspective(1500px) translate3d(0px, 300px, 0px);
+        transform: perspective(1500px) translate3d(0px, 200px, 0px);
         opacity: 1;
     }
     100% {
-        transform: perspective(1500px) translate3d(0px, 300px, 0px);
+        transform: perspective(1500px) translate3d(0px, 200px, 0px);
         opacity: 0;
     }
 
