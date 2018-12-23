@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>"城"就河南</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://www.hnsjb.cn/static/lib/js/swiper/swiper.min.css">
+    <script src="https://www.hnsjb.cn/static/lib/js/swiper/swiper.min.js"></script>
+    <script src="https://www.hnsjb.cn/static/lib/js/jquery-1.11.0.js"></script>
+
+</head>
+<body>
+<div class="loading-line">
+    <div class="line" style="width: 100%;"></div>
+</div>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div id="page1" class="swiper-slide">
+            <p></p>
+            <div class="arrow-down" style="display: block;"><p>上滑开始</p></div>
+        </div>
+        <div id="zhengzhou" class="swiper-slide">
+            <div class="zz1 zz">
+                <img src="img/zhengzhou01.jpg" alt="">
+            </div>
+            <div class="zz2 zz">
+                <img src="img/zhengzhou02.jpg" alt="">
+            </div>
+            <div class="zz3 zz">
+                <img src="img/zhengzhou03.jpg" alt="">
+            </div>
+            <div class="arrow-down" style="display: block;"><p>上滑切换城市</p></div>
+        </div>
+        <div id="page3" class="swiper-slide">洛阳</div>
+        <div id="page4" class="swiper-slide">开封</div>
+        <div id="page5" class="swiper-slide">平顶山</div>
+        <div id="page6" class="swiper-slide">安阳</div>
+        <div id="page7" class="swiper-slide">尾屏
+            <img src="img/video.gif" alt="im">
+        </div>
+    </div>
+</div>
+<script>
+	var imgArr = [
+		'img/page1.jpg',
+		'img/bg1.jpg',
+		'img/zhengzhou01.jpg',
+		'img/zhengzhou02.jpg',
+		'img/zhengzhou03.jpg'
+	];
+	var newimages = [], loadedimages = 0;
+
+	function preloadimages(arr) {
+		var arr = (typeof arr != "object") ? [arr] : arr;
+
+		function imageloadpost() {
+			loadedimages++;
+			if (loadedimages == arr.length) {
+				document.getElementsByClassName('swiper-container')[0].style.opacity = 1;
+				document.getElementsByClassName('loading-line')[0].style.display = 'none';
+			}
+		}
+
+		for (var i = 0; i < arr.length; i++) {
+			newimages[i] = new Image();
+			newimages[i].src = arr[i];
+			newimages[i].onload = function () {
+				imageloadpost()
+			};
+			newimages[i].onerror = function () {
+				imageloadpost()
+			}
+		}
+	}
+
+	preloadimages(imgArr);
+</script>
+<script>
+
+	var swiper = new Swiper('.swiper-container', {
+		direction: 'vertical',
+		on: {
+			slideChangeTransitionStart: function () {
+
+				if (this.activeIndex === 1) {
+                    $('.zz').css({
+                        'animationPlayState':'running'
+                    })
+				} else if (this.activeIndex === 2) {
+
+				}
+			}
+		}
+	});
+
+</script>
+
+</body>
+</html>

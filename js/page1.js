@@ -1,7 +1,7 @@
 /**
  * Created by 49843 on 2018/12/22.
  */
-
+console.dir(newimages[1])
 var page1 = {
 	speed: 7,
 	direction: 1,
@@ -19,15 +19,13 @@ var page1 = {
 			'./img/nei-1.png'
 		],
 		[
-			'./img/bg1.jpg',
+			newimages[1].src,
 			'./img/zhengzhou01.jpg'
 		],
 		[
-			'./img/bg1.jpg',
 			'./img/zhengzhou02.jpg'
 		],
 		[
-			'./img/bg1.jpg',
 			'./img/zhengzhou03.jpg'
 		]
 
@@ -42,15 +40,15 @@ var page1 = {
 		],
 		[
 			{name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
-			{name: 'zhengzhou01', w: 558, h: 376, x: 0, y:300, z: 0}
+			{name: 'zhengzhou01', w: 637, h: 439, x: 0, y:300, z: 0}
 		],
 		[
-			{name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
-			{name: 'zhengzhou02', w: 637, h: 439, x: 0, y: 0, z: 0}
+
+			{name: 'zhengzhou02', w: 637, h: 439, x: 0, y: 0, z: 100}
 		],
 		[
-			{name: 'bg', w: 2400, h: 2574, x: 0, y: 0, z: 0},
-			{name: 'zhengzhou03', w: 637, h: 439, x: 0, y: -300, z: 0}
+
+			{name: 'zhengzhou03', w: 637, h: 439, x: 0, y: -300, z: 200}
 		]
 
 	],
@@ -58,7 +56,6 @@ var page1 = {
 		this.currentIndex = 0;
 		this.isPause = false;
 		this.webGLRenderer.clear();
-		this.webGLRenderer.setClearColor(0x000000, 0.5);
 		this.webGLRenderer.setSize(window.innerWidth, window.innerHeight);
 		this.webGLRenderer.shadowMap.enabled = true;
 	},
@@ -90,11 +87,11 @@ var page1 = {
 
 	render: function () {
 		if (this.isPause) {
-			this.scene.children.length = 0;
+			// this.scene.children.length = 0;
 			if (this.currentIndex < 4) {
-				this.reDraw(this.imgLists[this.currentIndex], this.dataLists[this.currentIndex]);
-				this.webGLRenderer.clear();
+				// this.webGLRenderer.clear();
 				this.webGLRenderer.render(this.scene, this.camera);
+				this.reDraw(this.imgLists[this.currentIndex], this.dataLists[this.currentIndex]);
 				this.isPause = false;
 			}
 			return;

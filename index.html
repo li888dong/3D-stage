@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>webgl demo</title>
+    <title>"城"就河南</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://www.hnsjb.cn/static/lib/js/swiper/swiper.min.css">
     <script src="https://www.hnsjb.cn/static/lib/js/swiper/swiper.min.js"></script>
     <script type="text/javascript" src="lib/three.min.js"></script>
+
 </head>
 <body>
+<div class="loading-line">
+    <div class="line" style="width: 100%;"></div>
+</div>
+
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <div id="page1" class="swiper-slide">
@@ -27,31 +32,69 @@
         </div>
     </div>
 </div>
+<script>
+	var imgArr = [
+		'img/page1.jpg',
+		'img/bg1.jpg',
+		'img/zhengzhou01.jpg',
+		'img/zhengzhou02.jpg',
+		'img/zhengzhou03.jpg'
+	];
+	var newimages = [], loadedimages = 0;
+
+	function preloadimages(arr) {
+		var arr = (typeof arr != "object") ? [arr] : arr;
+
+		function imageloadpost() {
+			loadedimages++;
+			if (loadedimages == arr.length) {
+				document.getElementsByClassName('swiper-container')[0].style.opacity = 1;
+				document.getElementsByClassName('loading-line')[0].style.display = 'none';
+			}
+		}
+
+		for (var i = 0; i < arr.length; i++) {
+			newimages[i] = new Image();
+			newimages[i].src = arr[i];
+			newimages[i].onload = function () {
+				imageloadpost()
+			};
+			newimages[i].onerror = function () {
+				imageloadpost()
+			}
+		}
+	}
+
+	preloadimages(imgArr);
+</script>
+
 <script src="js/page1.js"></script>
 <script src="js/page2.js"></script>
+<script>
 
-    <script>
-		var animateId;
 
-		var swiper = new Swiper('.swiper-container', {
-			direction: 'vertical',
-			on: {
-				slideChangeTransitionStart: function () {
-					cancelAnimationFrame(animateId);
+	var animateId;
 
-					if (this.activeIndex === 1) {
-						page1.init();
-						page1.appendEl();
-						animate1();
-					} else if (this.activeIndex === 2) {
-						page2.init();
-						page2.appendEl();
-						animate2();
-					}
-				},
-			},
-		});
+	var swiper = new Swiper('.swiper-container', {
+		direction: 'vertical',
+		on: {
+			slideChangeTransitionStart: function () {
+				cancelAnimationFrame(animateId);
 
-    </script>
+				if (this.activeIndex === 1) {
+					page1.init();
+					page1.appendEl();
+					animate1();
+				} else if (this.activeIndex === 2) {
+					page2.init();
+					page2.appendEl();
+					animate2();
+				}
+			}
+		}
+	});
+
+</script>
+
 </body>
 </html>
