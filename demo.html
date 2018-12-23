@@ -21,24 +21,68 @@
     <div class="swiper-wrapper">
         <div id="page1" class="swiper-slide">
             <p></p>
-            <div class="arrow-down" style="display: block;"><p>上滑开始</p></div>
+            <div class="arrow-down" style="display: block;"><p>开始</p></div>
         </div>
         <div id="zhengzhou" class="swiper-slide">
-            <div class="zz1 zz">
+            <div class="city-map city-map-zz">
                 <img src="img/zhengzhou01.png" alt="">
             </div>
-            <div class="zz2 zz">
+            <div class="city-map city-map-zz">
                 <img src="img/zhengzhou02.png" alt="">
             </div>
-            <div class="zz3 zz">
+            <div class="city-map city-map-zz">
                 <img src="img/zhengzhou03.jpg" alt="">
             </div>
-            <div class="arrow-down" style="display: block;"><p>上滑切换城市</p></div>
+            <div class="arrow-down" style="display: block;"><p>切换城市</p></div>
         </div>
-        <div id="page3" class="swiper-slide">洛阳</div>
-        <div id="page4" class="swiper-slide">开封</div>
-        <div id="page5" class="swiper-slide">平顶山</div>
-        <div id="page6" class="swiper-slide">安阳</div>
+        <div id="luoyang" class="swiper-slide">
+            <div class="city-map city-map-ly">
+                <img src="img/luoyang01.png" alt="">
+            </div>
+            <div class="city-map city-map-ly">
+                <img src="img/luoyang02.png" alt="">
+            </div>
+            <div class="city-map city-map-ly">
+                <img src="img/luoyang03.jpg" alt="">
+            </div>
+            <div class="arrow-down" style="display: block;"><p>切换城市</p></div>
+        </div>
+        <div id="kaifeng" class="swiper-slide">
+            <div class="city-map city-map-kf">
+                <img src="img/kaifeng01.png" alt="">
+            </div>
+            <div class="city-map city-map-kf">
+                <img src="img/kaifeng02.png" alt="">
+            </div>
+            <div class="city-map city-map-kf">
+                <img src="img/kaifeng03.png" alt="">
+            </div>
+            <div class="arrow-down" style="display: block;"><p>切换城市</p></div>
+        </div>
+        <div id="pingdingshan" class="swiper-slide">
+            <div class="city-map city-map-pds">
+                <img src="img/kaifeng01.png" alt="">
+            </div>
+            <div class="city-map city-map-pds">
+                <img src="img/kaifeng02.png" alt="">
+            </div>
+            <div class="city-map city-map-pds">
+                <img src="img/kaifeng03.png" alt="">
+            </div>
+            <div class="arrow-down" style="display: block;"><p>切换城市</p></div>
+        </div>
+        <div id="anyang" class="swiper-slide">
+            <div class="city-map city-map-ay">
+                <img src="img/anyang01.png" alt="">
+            </div>
+            <div class="city-map city-map-ay">
+                <img src="img/anyang02.png" alt="">
+            </div>
+            <div class="city-map city-map-ay">
+                <img src="img/anyang03.jpg" alt="">
+            </div>
+            <div class="arrow-down" style="display: block;"><p>切换城市</p></div>
+        </div>
         <div id="page7" class="swiper-slide">尾屏
             <img src="img/video.gif" alt="im">
         </div>
@@ -52,6 +96,18 @@
 		'img/zhengzhou02.png',
 		'img/zhengzhou03.jpg',
 		'img/zhengzhouall.jpg',
+		'img/luoyang01.png',
+		'img/luoyang02.png',
+		'img/luoyang03.png',
+		'img/kaifeng01.png',
+		'img/kaifeng02.png',
+		'img/kaifeng03.png',
+		'img/pingdingshan01.png',
+		'img/pingdingshan02.png',
+		'img/pingdingshan03.png',
+		'img/anyang01.png',
+		'img/anyang02.png',
+		'img/anyang03.png'
 	];
 	var newimages = [], loadedimages = 0;
 
@@ -62,15 +118,15 @@
 			loadedimages++;
 			if (loadedimages == arr.length) {
 				$('#precent').text('100%');
-				$('.line').css('width','100%');
+				$('.line').css('width', '100%');
 				setTimeout(function () {
 					document.getElementsByClassName('swiper-container')[0].style.opacity = 1;
 					document.getElementsByClassName('loading-line')[0].style.display = 'none';
-				},500);
-			}else {
-				$('#precent').text((loadedimages/arr.length).toFixed(2)*100+'%');
-				$('.line').css('width',(loadedimages/arr.length).toFixed(2)*100+'%')
-            }
+				}, 500);
+			} else {
+				$('#precent').text((loadedimages / arr.length).toFixed(2) * 100 + '%');
+				$('.line').css('width', (loadedimages / arr.length).toFixed(2) * 100 + '%')
+			}
 		}
 
 		for (var i = 0; i < arr.length; i++) {
@@ -95,11 +151,30 @@
 			slideChangeTransitionStart: function () {
 
 				if (this.activeIndex === 1) {
-                    $('.zz').css({
-                        'animationPlayState':'running'
-                    })
+					$('.city-map').removeClass('zz1').removeClass('zz2').removeClass('zz3');
+					$($('.city-map-zz')[0]).show().addClass('zz1');
+					$($('.city-map-zz')[1]).show().addClass('zz2');
+					$($('.city-map-zz')[2]).show().addClass('zz3');
 				} else if (this.activeIndex === 2) {
-
+					$('.city-map').removeClass('zz1').removeClass('zz2').removeClass('zz3');
+					$($('.city-map-ly')[0]).show().addClass('zz1');
+					$($('.city-map-ly')[1]).show().addClass('zz2');
+					$($('.city-map-ly')[2]).show().addClass('zz3');
+				}else if (this.activeIndex === 3) {
+					$('.city-map').removeClass('zz1').removeClass('zz2').removeClass('zz3');
+					$($('.city-map-kf')[0]).show().addClass('zz1');
+					$($('.city-map-kf')[1]).show().addClass('zz2');
+					$($('.city-map-kf')[2]).show().addClass('zz3');
+				}else if (this.activeIndex === 4) {
+					$('.city-map').removeClass('zz1').removeClass('zz2').removeClass('zz3');
+					$($('.city-map-pds')[0]).show().addClass('zz1');
+					$($('.city-map-pds')[1]).show().addClass('zz2');
+					$($('.city-map-pds')[2]).show().addClass('zz3');
+				}else if (this.activeIndex === 5) {
+					$('.city-map').removeClass('zz1').removeClass('zz2').removeClass('zz3');
+					$($('.city-map-ay')[0]).show().addClass('zz1');
+					$($('.city-map-ay')[1]).show().addClass('zz2');
+					$($('.city-map-ay')[2]).show().addClass('zz3');
 				}
 			}
 		}
