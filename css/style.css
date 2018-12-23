@@ -96,14 +96,40 @@ html, body {
 }
 
 #page1 {
-    background: url("../img/page1.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-color: #f3ebde;
+}
+#page1 img{
+    margin-top: 150px;
 }
 
 
 #zhengzhou{
     background-image: url("../img/zhengzhouall.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#luoyang{
+    background-image: url("../img/luoyangall.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#kaifeng{
+    background-image: url("../img/kaifengall.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#pingdingshan{
+    background-image: url("../img/pingdingshanall.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#anyang{
+    background-image: url("../img/anyangall.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#page7{
+    background-image: url("../img/page1.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -113,6 +139,9 @@ html, body {
     top: 0;
     width: 100%;
     opacity:0;
+}
+.city-map p{
+    font-size:24px;
 }
 .city-map-zz{
 
